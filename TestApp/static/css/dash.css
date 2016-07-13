@@ -1,0 +1,120 @@
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	background-image: url("456.JPG");
+	/*background-repeat:no-repeat;*/
+  background-size:cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+  height: 100vh;
+}
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /*background: rgb(168, 48, 32);*/
+  /*background: #239584;*/
+}
+
+nav{
+	position:absolute;
+	z-index:9;
+  /*padding-bottom: 65px;*/
+}
+
+header button:focus{
+  background: transparent;
+}
+
+.nav-wrapper, .drawer-nav{
+
+	background: #383A3F;
+}
+
+
+.drawer-toggle{
+  z-index: 9999;
+}
+
+.drawer-hamburger-icon,
+.drawer-hamburger-icon:before,
+.drawer-hamburger-icon:after{
+  background: #ee4f4f;
+  height: 3px;
+}
+
+.logo{
+    width: 45px;
+    height: 45px;
+    margin-top: 7px;
+    margin-right: 5px;
+    margin-left: 5px;
+    /*margin: 5px 5px;*/
+    /*margin: 2px;*/
+}
+
+.drawer-nav{
+  z-index: 99999;
+}
+
+.drawer-menu li.items{
+  border-bottom:  2px solid #1f4e5f;
+  width: 100%;
+}
+
+li.items a{
+  color: white;
+  width: 100%;
+}
+
+.menu li {
+    margin: 0;
+		padding: 0;
+    /*padding: .85rem 0.5rem;*/
+}
+.menu a {
+    /*color: rgb(22, 55, 48);*/
+
+    color: white;
+    text-decoration: none;
+    /*font-size: 1.0rem;*/
+}
+
+
+button{
+	width: 75%;
+}
+
+.charts{
+  /*opacity : 0.8;*/
+
+  /*margin-top: 1px;*/
+  width: 100vw;
+  padding: 0 20px;
+}
+/*
+.row:nth-child(even){
+  margin-bottom: 30px;
+}*/
+
+table{
+  background: #26A69A;
+  /*color: white;*/
+  padding: 5px;
+  border-radius: 5px;
+}
+
+tr{
+  border-bottom: 1px solid white;
+}
+
+/*@media screen and (min-width: 769px) {
+  .drawer-toggle {
+      display: none;
+  }
+}
+*/
