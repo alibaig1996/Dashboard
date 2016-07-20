@@ -13,4 +13,5 @@ urlpatterns = [
 	url(r'^dash/nu_weekly$', views.nu_weekly, name="nu_weekly"),
 	url(r'^dash/nu_monthly$', views.nu_monthly, name="nu_monthly"),
 	url(r'^dash2$', views.dash2, name="dash2"),
+	url(r'^dash/dau$', views.dau, name="dau"),
 ]

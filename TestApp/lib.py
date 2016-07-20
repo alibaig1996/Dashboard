@@ -29,7 +29,7 @@ except ImportError:
 
 class Mixpanel(object): #{
 
-	ENDPOINT = 'https://mixpanel.com/api'
+	ENDPOINT = 'https://data.mixpanel.com/api'
 	VERSION = '2.0'
 
 	def __init__(self, api_secret): #{

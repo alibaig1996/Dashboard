@@ -16,18 +16,19 @@
 	    <script src="{%static "js/jquery-min.js" %}"></script>
 	    <script src="{%static "js/drawer.js" %}"></script>
 	    <script type="text/javascript" src="{%static "js/materialize.js" %}"></script>
+	    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>-->	    
 	    <script type="text/javascript" src="{%static "js/chart.js" %}"></script>
 	    <script type="text/javascript" src="{%static "js/angular.min.js" %}"></script>
 	    <script src="{%static "js/dash.js" %}" charset="utf-8"></script>
 	</head>
-	<body class="drawer drawer--right blue-grey darken-3">
+	<body style="background-color: #0D1523">
 	    <div class="section">
 	      <div class="row" style="margin-top: 30px">
-	      	<div style="background-color: #26A69A; margin-left: 1%; height: 400px; width: 1180px; float: left">
+	      	<div style="background-color: #172035; margin-left: 1%; height: 400px; width: 1180px; float: left">
 	      		<canvas id="chart" height="400" width="1180"></canvas>
 	      	</div>
 	      	<section style="margin-left: 5%; float: left" ng-controller="SignUpController as sign">
-	      		<ul class="nav nav-pills">
+	      		<ul class="nav nav-pills" >
 	      			<li ng-class="{ active:sign.isSelected(1)}">
 	      				<a ng-click="sign.selectTab(1)">Daily</a>
 	      			</li>
@@ -38,26 +39,26 @@
 	      				<a ng-click="sign.selectTab(3)">Monthly</a>
 	      			</li>
 	      		</ul>
-		      	<div ng-show="sign.isSelected(1)" style="background-color: #26A69A; height: 360px; width: 600px; "">
+		      	<div ng-show="sign.isSelected(1)" style="background-color: #172035; height: 360px; width: 600px; "">
 		      		<canvas id="chart21" height="360" width="600"></canvas>
 		      	</div>
-		      	<div ng-show="sign.isSelected(2)" style="background-color: #26A69A; height: 360px; width: 600px;">
+		      	<div ng-show="sign.isSelected(2)" style="background-color: #172035; height: 360px; width: 600px;">
 		      		<canvas id="chart22" height="360" width="600"></canvas>
 		      	</div>
-		      	<div ng-show="sign.isSelected(3)" style="background-color: #26A69A; height: 360px; width: 600px;">
+		      	<div ng-show="sign.isSelected(3)" style="background-color: #172035; height: 360px; width: 600px;">
 		      		<canvas id="chart23" height="360" width="600"></canvas>
 		      	</div>   
 	      	</section>
 	      </div>
 	    </div>
 		<div class="row" style="margin-top: 10px">
-			<div style="background-color: #26A69A; margin-left: 1%; height: 400px; width: 600px; float: left">
+			<div style="background-color: #172035; margin-left: 1%; height: 400px; width: 600px; float: left">
 				<canvas id="chart3" height="400" width="600"></canvas>
 			</div>
-			<div style="background-color: #26A69A; margin-left: 2%; height: 400px; width: 600px; float: left">
+			<div style="background-color: #172035; margin-left: 2%; height: 400px; width: 600px; float: left">
 				<canvas id="chart4" height="400" width="600"></canvas>
 			</div>
-			<div style="background-color: #26A69A; margin-left: 2%; height: 400px; width: 600px; float: left">
+			<div style="background-color: #172035; margin-left: 2%; height: 400px; width: 600px; float: left">
 				<canvas id="chart5" height="400" width="600"></canvas>
 			</div>
 		</div>
