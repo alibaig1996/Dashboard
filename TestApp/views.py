@@ -21,6 +21,10 @@ def dash(request):
 	template = loader.get_template('static/dash.html')
 	return HttpResponse(template.render())
 
+def login(request):
+	template = loader.get_template('static/login.html')
+	return HttpResponse(template.render())
+
 def dgen(request):
 	webEvent = "SDKGenerated_WEBSITE"
 	widgetEvent = "SDKGenerated_WIDGET"

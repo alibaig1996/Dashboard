@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login Page</title>
+	{% load static %}
+
+	<link rel="stylesheet" href="{%static "TestApp/css/materialize.css" %}">
+
+	<script src="{%static "TestApp/js/jquery-min.js" %}"></script>
+	<script type="text/javascript" src="{%static "TestApp/js/materialize.js" %}"></script>
+	<script type="text/javascript" src="{%static "TestApp/js/login.js" %}"></script>  
+</head>
+<body style="box-sizing: border-box; margin: 0; padding: 0; background-color: #0D1523;">
+<div class="valign-wrapper">
+	<div id="top" class="section valign materials container" style="margin-top: 5%">
+		<div class="container center-align ">
+			<img class="responsive-img" src="{%static "TestApp/apimatic.png" %}" style="height: 300px">
+		</div>
+		<form class="col s12">
+			<div id="fail" class="row center-align" style="display: none"> 
+				<h5 style="color: white">Credentials not valid</h5>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<input id="username" type="text" class="validate" style="color: #FFF">
+					<label for="username">Username</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<input id="password" type="password" class="validate" style="color: #FFF">
+					<label for="password">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="center-align">
+					<button id="bt" class="btn waves-effect waves-light" type="button" name="action">Submit
+	  				</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
