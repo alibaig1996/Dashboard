@@ -376,7 +376,7 @@ def table(request):
 				Churn.append(k)
 
 		for k in CurActiveUsers:
-			if (k not in PrevActiveUsers and k not in CurUserSignUp) or k in PrevUserSignUp:
+			if (k not in PrevActiveUsers and k not in CurUserSignUp) or (k in PrevUserSignUp and k not in PrevActiveUsers):
 				Rejoiners.append(k)
 
 		obj2 = {}
