@@ -5,15 +5,15 @@
 	    <title>Dashboard</title>
 	    {% load static %}
 
-	    <link rel="stylesheet" href="{%static "css/materialize.css" %}">
-	    <link rel="stylesheet" href="{%static "css/bootstrap.css" %}">
-	    <link rel="stylesheet" href="{%static "css/dash.css" %}">
+	    <link rel="stylesheet" href="{%static "TestApp/css/materialize.css" %}">
+	    <link rel="stylesheet" href="{%static "TestApp/css/bootstrap.css" %}">
+	    <link rel="stylesheet" href="{%static "TestApp/css/dash.css" %}">
 
-	    <script src="{%static "js/jquery-min.js" %}"></script>
-	    <script type="text/javascript" src="{%static "js/materialize.js" %}"></script>    
-	    <script type="text/javascript" src="{%static "js/chart.js" %}"></script>
-	    <script type="text/javascript" src="{%static "js/angular.min.js" %}"></script>
-	    <script src="{%static "js/dash.js" %}" charset="utf-8"></script>
+	    <script src="{%static "TestApp/js/jquery-min.js" %}"></script>
+	    <script type="text/javascript" src="{%static "TestApp/js/materialize.js" %}"></script>    
+	    <script type="text/javascript" src="{%static "TestApp/js/Chart.bundle.js" %}"></script>
+	    <script type="text/javascript" src="{%static "TestApp/js/angular.min.js" %}"></script>
+	    <script src="{%static "TestApp/js/dash.js" %}" charset="utf-8"></script>
 	</head>
 	<body>
 	    <div class="section">
@@ -102,19 +102,99 @@
 	      </div>
 	    </div>
 		<div class="b row">
-
-			<div class="loader" id="l3"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
-			<div class = "chart2" id="c3">
-				<canvas id="chart3" height="21%" width="30%"></canvas>
+		<section ng-controller="SDKController as sdk">
+			<ul class="nav nav-pills" >
+      			<li ng-class="{ active:sdk.isSelected(1)}">
+      				<a ng-click="sdk.selectTab(1)">Daily</a>
+      			</li>
+      			<li ng-class="{ active:sdk.isSelected(2)}">
+      				<a ng-click="sdk.selectTab(2)">Weekly</a>
+      			</li>
+      			<li ng-class="{ active:sdk.isSelected(3)}">
+      				<a ng-click="sdk.selectTab(3)">Monthly</a>
+      			</li>
+      		</ul>
+      		<div ng-show="sdk.isSelected(1)">
+				<div class="loader" id="l31"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c31">
+					<canvas id="chart31" height="18.5%" width="30%"></canvas>
+				</div>
+      		</div>
+      		<div ng-show="sdk.isSelected(2)">
+				<div class="loader" id="l32"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c32">
+					<canvas id="chart32" height="18.5%" width="30%"></canvas>
+				</div>
+      		</div>
+      		<div ng-show="sdk.isSelected(3)">
+				<div class="loader" id="l33"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c33">
+					<canvas id="chart33" height="18.5%" width="30%"></canvas>
+				</div>
+      		</div>		
+		</section>
+		<section ng-controller="EditController as edit">
+			<ul class="nav nav-pills" >
+      			<li ng-class="{ active:edit.isSelected(1)}">
+      				<a ng-click="edit.selectTab(1)">Daily</a>
+      			</li>
+      			<li ng-class="{ active:edit.isSelected(2)}">
+      				<a ng-click="edit.selectTab(2)">Weekly</a>
+      			</li>
+      			<li ng-class="{ active:edit.isSelected(3)}">
+      				<a ng-click="edit.selectTab(3)">Monthly</a>
+      			</li>
+      		</ul>
+			<div ng-show="edit.isSelected(1)">
+				<div class="loader" id="l41"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c41">
+					<canvas id="chart41" height="18.5%" width="30%"></canvas>
+				</div>
 			</div>
-			<div class="loader" id="l4"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
-			<div class = "chart2" id="c4">
-				<canvas id="chart4" height="21%" width="30%"></canvas>
+			<div ng-show="edit.isSelected(2)">
+				<div class="loader" id="l42"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c42">
+					<canvas id="chart42" height="18.5%" width="30%"></canvas>
+				</div>
 			</div>
-			<div class="loader" id="l5"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
-			<div class = "chart2" id="c5">
-				<canvas id="chart5" height="21%" width="30%"></canvas>
+			<div ng-show="edit.isSelected(3)">
+				<div class="loader" id="l43"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+				<div class = "chart" id="c43">
+					<canvas id="chart43" height="18.5%" width="30%"></canvas>
+				</div>
 			</div>
+		</section>
+		<section ng-controller="ImportController as imp">
+		<ul class="nav nav-pills" >
+  			<li ng-class="{ active:imp.isSelected(1)}">
+  				<a ng-click="imp.selectTab(1)">Daily</a>
+  			</li>
+  			<li ng-class="{ active:imp.isSelected(2)}">
+  				<a ng-click="imp.selectTab(2)">Weekly</a>
+  			</li>
+  			<li ng-class="{ active:imp.isSelected(3)}">
+  				<a ng-click="imp.selectTab(3)">Monthly</a>
+  			</li>
+  		</ul>
+		<div ng-show="imp.isSelected(1)">
+			<div class="loader" id="l51"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+			<div class = "chart" id="c51">
+				<canvas id="chart51" height="18.5%" width="30%"></canvas>
+			</div>
+		</div>
+		<div ng-show="imp.isSelected(2)">
+			<div class="loader" id="l52"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+			<div class = "chart" id="c52">
+				<canvas id="chart52" height="18.5%" width="30%"></canvas>
+			</div>
+		</div>
+		<div ng-show="imp.isSelected(3)">
+			<div class="loader" id="l53"><div class='uil-ring-css' style='transform:scale(0.7);'><div></div></div></div>
+			<div class = "chart" id="c53">
+				<canvas id="chart53" height="18.5%" width="30%"></canvas>
+			</div>
+		</div>
+		</section>
 		</div>
 	</body>
 </html>

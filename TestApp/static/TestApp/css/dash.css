@@ -36,15 +36,6 @@ div.chart{
   background-color: #172035
 }
 
-div.chart2{
-  display: none;
-  background-color: #172035;
-  margin-left: 2%;
-  height: 21%;
-  width: 30%;
-  float: left
-}
-
 div.loader{
   float: left;
   height: 21%;
