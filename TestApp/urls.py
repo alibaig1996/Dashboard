@@ -5,6 +5,7 @@ urlpatterns = [
 	url(r'^$', views.index, name='index'), # Index page
 	url(r'^dash$', views.dash, name="dash"),
 	url(r'^login$', views.login, name="login"),
+	url(r'^logincheck$', views.logincheck, name="logincheck"),	
 	url(r'^dash/dgen$', views.dgen, name="dgen"),
 	url(r'^dash/wgen$', views.wgen, name="wgen"),
 	url(r'^dash/mgen$', views.mgen, name="mgen"),

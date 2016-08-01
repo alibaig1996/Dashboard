@@ -1,6 +1,6 @@
 from __future__ import print_function
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
 from lib import *
 import requests
@@ -18,12 +18,20 @@ def index(request):
 	return HttpResponse("<h1>This is the index page</h1>")
 
 def dash(request):
-	template = loader.get_template('static/dash.html')
+	if 'isset' in request.COOKIES.keys():
+		template = loader.get_template('static/dash.html')
+	else:
+		template = loader.get_template('static/login.html')
 	return HttpResponse(template.render())
 
 def login(request):
 	template = loader.get_template('static/login.html')
 	return HttpResponse(template.render())
+
+def logincheck(request):
+	hr = HttpResponseRedirect('dash')
+	hr.set_cookie('isset', 'true', 7200)
+	return hr
 
 def dgen(request):
 	webEvent = "SDKGenerated_WEBSITE"
