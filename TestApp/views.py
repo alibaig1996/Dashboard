@@ -71,7 +71,7 @@ def mgen(request):
 		'event': [webEvent, widgetEvent, apiEvent],
 		'type' : 'general',
 		'unit' : 'month',
-		'interval' : 3,
+		'interval' : 6,
 		})['data']['values']
 
 	return HttpResponse(json.dumps(data, sort_keys=True, indent=4, separators=(',', ': ')))
@@ -145,7 +145,7 @@ def medit(request):
 		'event': [errors, auth, basic, codegen, endpoint, model],
 		'type' : 'general',
 		'unit' : 'month',
-		'interval' : 3,
+		'interval' : 6,
 		})['data']['values']
 
 	date = []
@@ -196,7 +196,7 @@ def mimp(request):
 		'event': [event],
 		'type' : 'general',
 		'unit' : 'month',
-		'interval' : 3,
+		'interval' : 6,
 		})['data']['values']
 
 	return HttpResponse(json.dumps(data, sort_keys=True, indent=4, separators=(',', ': ')))
@@ -313,7 +313,7 @@ def mau(request):
 
 	obj = {}
 
-	for i in range(0, 3):
+	for i in range(0, 6):
 		scr = "function main() {  return Events({ from_date: \"" + str(first_day) + "\", to_date: \"" + str(last_day) + "\"}).filter(function(event){ return event.name != \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		data = response.json()
@@ -333,7 +333,7 @@ def table(request):
 
 	obj = {}
 
-	for i in range(0, 3):
+	for i in range(0, 6):
 		month = CurFirstDay.month
 		PrevActiveUsers = []
 		CurActiveUsers = []
@@ -343,6 +343,7 @@ def table(request):
 		scr = "function main() {  return Events({ from_date: \"" + str(PrevFirstDay) + "\", to_date: \"" + str(PrevLastDay) + "\"}).filter(function(event){ return event.name != \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		PrevData = response.json()
+		#print (PrevData)
 		for i in PrevData:
 			for val in i["key"]:
 				PrevActiveUsers.append(val)
@@ -350,6 +351,7 @@ def table(request):
 		scr = "function main() {  return Events({ from_date: \"" + str(PrevFirstDay) + "\", to_date: \"" + str(PrevLastDay) + "\"}).filter(function(event){ return event.name == \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		PrevUsers = response.json()
+		#print (PrevUsers)
 		for i in PrevUsers:
 			for val in i["key"]:
 				PrevUserSignUp.append(val)
@@ -357,6 +359,7 @@ def table(request):
 		scr = "function main() {  return Events({ from_date: \"" + str(CurFirstDay) + "\", to_date: \"" + str(CurLastDay) + "\"}).filter(function(event){ return event.name != \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		CurData = response.json()
+		#print (CurData)
 		for i in CurData:
 			for val in i["key"]:
 				CurActiveUsers.append(val)
@@ -364,6 +367,7 @@ def table(request):
 		scr = "function main() {  return Events({ from_date: \"" + str(CurFirstDay) + "\", to_date: \"" + str(CurLastDay) + "\"}).filter(function(event){ return event.name == \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		CurUsers = response.json()
+		#print (CurUsers)
 		for i in CurUsers:
 			for val in i["key"]:
 				CurUserSignUp.append(val)
