@@ -442,6 +442,8 @@ def table(request):
 			for val in i["key"]:
 				PrevActiveUsers.append(val)
 
+		PrevActiveUsers = InHouseFilter(PrevActiveUsers)
+
 		scr = "function main() {  return Events({ from_date: \"" + str(PrevFirstDay) + "\", to_date: \"" + str(PrevLastDay) + "\"}).filter(function(event){ return event.name == \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		PrevUsers = response.json()
@@ -449,6 +451,8 @@ def table(request):
 		for i in PrevUsers:
 			for val in i["key"]:
 				PrevUserSignUp.append(val)
+
+		PrevUserSignUp = InHouseFilter(PrevUserSignUp)
 
 		scr = "function main() {  return Events({ from_date: \"" + str(CurFirstDay) + "\", to_date: \"" + str(CurLastDay) + "\"}).filter(function(event){ return event.name != \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
@@ -458,6 +462,8 @@ def table(request):
 			for val in i["key"]:
 				CurActiveUsers.append(val)
 
+		CurActiveUsers = InHouseFilter(CurActiveUsers)				
+
 		scr = "function main() {  return Events({ from_date: \"" + str(CurFirstDay) + "\", to_date: \"" + str(CurLastDay) + "\"}).filter(function(event){ return event.name == \"NewUser_Signup\"}).groupBy([\"distinct_id\"], mixpanel.reducer.count())}"
 		response = requests.post("https://mixpanel.com/api/2.0/jql", auth=(user, ''), data={"script" : scr})
 		CurUsers = response.json()
@@ -465,6 +471,8 @@ def table(request):
 		for i in CurUsers:
 			for val in i["key"]:
 				CurUserSignUp.append(val)
+
+		CurUserSignUp = InHouseFilter(CurUserSignUp)
 
 		Rejoiners = []
 		Churn = []
