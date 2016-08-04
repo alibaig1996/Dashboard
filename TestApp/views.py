@@ -36,7 +36,7 @@ def login(request):
 	return HttpResponse(template.render())
 
 def logincheck(request):
-	hr = HttpResponseRedirect('')
+	hr = HttpResponseRedirect('/')
 	hr.set_cookie('isset', 'true', 7200)
 	return hr
 
